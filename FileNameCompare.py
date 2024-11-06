@@ -51,6 +51,7 @@ def common_members(in_1, in_2):
     result = []
     pos = []
     for i in range(len(in_1)):
+        blib = time.time()
         for l in range(len(in_2)):
             if in_1[i] == in_2[l]:
                 result.append(i)
@@ -58,6 +59,8 @@ def common_members(in_1, in_2):
                     pos.append(i)
                 elif len(in_1) < len(in_2):
                     pos.append(l)
+        blab = time.time()
+        print(str(blab-blib) + " s for comparison " + str(i+1) + "/" + str(len(in_1)))
     # result = [i for i in in_1 if i in in_2]
     return result, pos
 
