@@ -73,12 +73,15 @@ if __name__ == "__main__":
     input_1 = []
     input_2 = []
 
+    glib = time.time()
     for dirpath, dirnames, filenames in os.walk(input_path_1):
         for filename in [f for f in filenames if f.endswith(".macs")]:
             input_1.append(os.path.join(dirpath, filename))
     for dirpath, dirnames, filenames in os.walk(input_path_2):
         for filename in [f for f in filenames if f.endswith(".tif")]:
             input_2.append(os.path.join(dirpath, filename))
+    glab = time.time()
+    print("Input reading done in: " + str(glab-glib))
     stop = 0
     decider = ""
     if len(input_1) > len(input_2):
